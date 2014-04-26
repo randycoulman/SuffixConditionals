@@ -1,6 +1,7 @@
 # SuffixConditionals
 
-Add Ruby-like suffix conditionals to Visualworks Smalltalk.
+Add Ruby-like suffix and Python-like infix conditionals to Visualworks
+Smalltalk.
 
 SuffixConditionals is licensed under the MIT license.  See the
 copyright tab in the RB, the `notice` property of this package or the
@@ -17,14 +18,18 @@ GitHub.
 
 # Introduction
 
-SuffixConditionals adds `if:` and `unless:` methods to `BlockClosure`
-in Visualworks Smalltalk.
+SuffixConditionals adds `if:`, `unless:`, and `if:else:` methods to
+`BlockClosure` in Visualworks Smalltalk.
 
 When writing a conditional expression with a single branch (i.e.,
 `ifTrue:` or `ifFalse:`), it is sometimes desirable for the main focus
 of the expression to be on the action, rather than the condition.  In
-those cases, the action should come first.  SuffixConditionals makes
-that possible.
+those cases, the action should come first.
+
+Likewise, when using the return value of a conditional expression,
+an infix notation of the condition is easier to read from time to time.
+
+SuffixConditionals makes that possible.
 
 For example, the following code:
 
@@ -40,8 +45,25 @@ can be written as:
     if: (self respondsTo: methodName)
 ```
 
+Another example:
+
+```
+'Variable n is ' , (n odd ifTrue: ['odd'] ifFalse: ['even'])
+```
+
+could be rewritten as:
+
+```
+'Variable n is ' , (['odd'] if: n odd else: ['even'])
+```
+
 It is up to you to decide which form is more readable in your code,
 but SuffixConditionals gives you the choice.
+
+Note that the standard `#ifTrue:` and `#ifFalse:` methods are
+optimized by the compiler and VM, so using SuffixConditionals will
+result in some amount of performance penalty.  You will have to decide
+if you can afford that penalty in your code.
 
 # Contributing
 
