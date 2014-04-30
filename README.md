@@ -60,10 +60,11 @@ could be rewritten as:
 It is up to you to decide which form is more readable in your code,
 but SuffixConditionals gives you the choice.
 
-Note that the standard `#ifTrue:` and `#ifFalse:` methods are
-optimized by the compiler and VM, so using SuffixConditionals will
-result in some amount of performance penalty.  You will have to decide
-if you can afford that penalty in your code.
+The methods `#if:`, `#unless:`, and `#if:else` are optimized in the
+same way as the standard conditional methods (`#ifTrue:`, `#ifFalse:`,
+etc), so SuffixConditionals does not impose an additional performance
+penalty.  Thanks to Steffen Märcker for implementing this
+optimization.
 
 # Contributing
 
