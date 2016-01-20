@@ -1,5 +1,7 @@
 # SuffixConditionals
 
+![Maintenance Status](https://img.shields.io/badge/maintenance-active-green.svg)
+
 Add Ruby-like suffix and Python-like infix conditionals to Visualworks
 Smalltalk.
 
